@@ -26,7 +26,7 @@ when connected to the Retail database.
 6. Run closeness centrailty in a the co-purchasing graph for the specific community, this will generate a centrailty score as a new property for the `item` nodes. This will generate a list of similar items that'd be brought together.
 7. Run page rank algorithm in a the co-purchasing graph for the specific community, this will generate a pageRank score as a new property for the `item` nodes. This will generate a list of influencing items that'd be brought together. Example of influencing items means buying a birthday cake would influence the purchase of candles.
 8. Exploration queries:
- - Items that are similar in one community but not another
- - Items that have different page ranks
- - Items that have high centrailty but low pageRank
- - items that have low centrailty but high pageRank
+   - Items that are similar in one community but not another
+   - Items that have different page ranks
+   - Items that have high centrailty but low pageRank
+   - items that have low centrailty but high pageRank
