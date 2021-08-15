@@ -16,3 +16,17 @@ Or to install directly from this repository execute the queries in load_data_onl
 when connected to the Retail database.
 
 **_Note_**: You _may_ need to change the Community IDs specified in the Item Similarity, Ite, Centrality, and Exploratory Queries to match the community IDs in your database. They are assigned based on seeds pulled from your internal node IDs, so they may be different in your database.
+
+**Logics:**
+1. Native load customer graph with ['Customer','Item'] nodes
+2. Mutate (add a relationship 'Similar' with score) with Jaccard similairty to the customer nodes based on the items that they are buying
+3. Segment the customers with Louvian community using score as weight, this will add a coummunity id to the (customer) node
+4. Check similairty using Jaccard similairty within community by writing an edge with weight 'score'
+5. Project a co-purchasing graph in a specific community `(i1:Item)<--(c:Customer)-->(i2:Item)`
+6. Run closeness centrailty in a the co-purchasing graph for the specific community, this will generate a centrailty score as a new property for the `item` nodes. This will generate a list of similar items that'd be brought together.
+7. Run page rank algorithm in a the co-purchasing graph for the specific community, this will generate a pageRank score as a new property for the `item` nodes. This will generate a list of influencing items that'd be brought together. Example of influencing items means buying a birthday cake would influence the purchase of candles.
+8. Exploration queries:
+ a. Items that are similar in one community but not another
+ b. Items that have different page ranks
+ c. Items that have high centrailty but low pageRank
+ d. items that have low centrailty but high pageRank
