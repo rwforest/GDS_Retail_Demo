@@ -18,7 +18,7 @@ when connected to the Retail database.
 **_Note_**: You _may_ need to change the Community IDs specified in the Item Similarity, Ite, Centrality, and Exploratory Queries to match the community IDs in your database. They are assigned based on seeds pulled from your internal node IDs, so they may be different in your database.
 
 **Logics:**
-1. Native load customer graph with ['Customer','Item'] nodes
+1. <a href="https://neo4j.com/graphacademy/training-iga-40/02-iga-40-overview-of-graph-algorithms/#_monopartite_projection">Native load</a> customer graph with ['Customer','Item'] nodes
 2. Mutate (add a relationship 'Similar' with score) with Jaccard similairty to the customer nodes based on the items that they are buying
 3. Segment the customers with Louvian community using score as weight, this will add a coummunity id to the (customer) node
 4. Check similairty using Jaccard similairty within community by writing an edge with weight 'score'
